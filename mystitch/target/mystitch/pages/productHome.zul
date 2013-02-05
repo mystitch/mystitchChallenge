@@ -1,0 +1,11 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/layout/mainLayout.zul"?>
+<zk>
+<!-- <window> -->
+<window self="@{define(left)}"  >
+
+							
+	<include src="/pages/homeImageContainer.zul"/>
+	
+	
+</window>
+</zk>

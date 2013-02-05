@@ -1,0 +1,130 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/layout/mainLayout.zul"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+
+<!-- <style dynamic="true"> -->
+<!-- .z-button-os { -->
+<!--     font-family: arial,sans-serif; -->
+<!--     font-size: 10px; -->
+<!--     font-weight: bold; -->
+<!--     padding:0; -->
+<!-- } -->
+<!-- .z-textbox-rounded-inp{ -->
+<!--  font-size: 10px; -->
+ 
+<!-- } -->
+
+<!-- </style> -->
+
+<window id="cartViewWindow" width="100%" closable="true" self="@{define(left)}"  apply="${cartViewCtrl}"  >	
+			
+		<image src="/images/cart/cartTopBar.png"></image>
+		
+			<hlayout>
+				<hbox >
+					<panel
+				title="YOUR CART"
+				border="normal"
+					>
+				<panelchildren>					
+					
+					<grid>
+						<columns>
+							<column />
+							<column />
+							<column />
+							<column />
+							<column />
+							<column />
+						</columns>
+						<rows id="cartItemRows">
+							<row>
+								<cell align="left" colspan="3">
+									<button label="&lt; CONTINUE SHOPPING" id="continueShop" style="background-color:#F15927;color:white;font-weight:bold;font-height:12px;"></button>
+								</cell>
+								<cell align="right" colspan="3">
+									<button label="&gt; PROCEED TO CHECKOUT" id="checkout" style="background-color:#4FC53F;color:white;font-weight:bold;font-height:12px;"></button>
+								</cell>
+							</row>
+							<row style="background-color:#F1F1F1;color:black;font-weight:bold;font-height:12px;">
+								
+								<cell>
+									<label>Items</label>
+								</cell>
+								<cell colspan="4" align="right">
+									<label>Unit Price</label>
+								</cell>
+								<cell align="right">
+									<label>Total Price</label>
+								</cell>
+								
+							</row>
+							<row id="cartItemRow">
+							
+							</row>
+							<row id="promoRow">
+								<cell colspan="6">
+									<label>Promo Code</label>
+									<space/>
+									<textbox id="promoCode" mold="rounded" width="10%"/>
+									<button label="APPLY" image="/images/cart/confirm.gif"></button>
+									<button label="REMOVE" image="/images/cart/remove.png"></button>
+									<div>
+									<label>
+										Please note: If you have a give certificate code it will be entered at the payment screen of the checkout.
+									</label>
+									</div>
+								</cell>
+							</row>
+							
+							<row style="background-color:#9ADFF1;color:black;font-weight:bold;font-height:12px; ">								
+								<cell >	
+									<image src="/images/cart/giftwrap.png"></image>
+								</cell>	
+								<cell colspan="2">
+									<div>
+										<checkbox id="addGiftWrap" label="Gift Wrap - $8.99 AUD"/>
+									</div>
+									<div>
+										<checkbox id="addGiftNote" label="Add Gift Note - FREE (you'll write this later)" />
+									</div>
+								</cell>	
+								<cell colspan="2" align="right">
+									<div>
+										<label>Sub Total</label>
+									</div>
+									<div>
+										<label>Shipping</label>
+									</div>
+									<div>
+										<label>Total</label>
+									</div>
+								
+								</cell>
+								<cell colspan="2" align="right" id="priceCell">
+									
+								
+								</cell>
+							</row>
+							<row>
+								<cell align="left" colspan="3">
+									<button label="&lt; CONTINUE SHOPPING" style="background-color:#F15927;color:white;font-weight:bold;font-height:12px;"></button>
+								</cell>
+								<cell align="right" colspan="3">
+									<button label="&gt; PROCEED TO CHECKOUT" id="checkoutDown"  style="background-color:#4FC53F;color:white;font-weight:bold;font-height:12px;"></button>
+								</cell>
+							</row>
+							
+						</rows>
+					</grid>
+					
+					</panelchildren>
+				</panel>
+				
+					<image src="/images/cart/cartSideBar.png"></image>
+				</hbox>
+			</hlayout>
+			
+				
+		</window>
+</zk>

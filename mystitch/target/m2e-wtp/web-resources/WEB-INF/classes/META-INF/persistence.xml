@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+	   http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	 version="1.0" >  
+	 
+ <persistence-unit name="myStitchPersistentUnit" transaction-type="RESOURCE_LOCAL"> 
+  
+  		<provider>org.hibernate.ejb.HibernatePersistence</provider> 
+  		 		
+  		<class>com.mystitch.model.Address</class>
+  		<class>com.mystitch.model.CreditCard</class>
+  		<class>com.mystitch.model.Customer</class>
+  		<class>com.mystitch.model.OrderItem</class>
+  		<class>com.mystitch.model.Price</class>
+  		<class>com.mystitch.model.ProductItem</class>
+  		<class>com.mystitch.model.ProductOrder</class>
+  		
+  		
+  		
+  		<exclude-unlisted-classes>true</exclude-unlisted-classes>		 
+  		
+        <properties>  
+            <property name="hibernate.dialect"  value="org.hibernate.dialect.Oracle10gDialect"/>  
+            <!-- Print SQL to stdout -->  
+            <property name="hibernate.show_sql" value="true" />  
+            <property name="hibernate.jdbc.batch_size" value="10"/>  
+        </properties>    
+        
+ </persistence-unit>   
+ 
+</persistence>  

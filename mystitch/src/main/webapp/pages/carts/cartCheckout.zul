@@ -1,0 +1,233 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/layout/mainLayout.zul"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+
+<style dynamic="true">
+tr.z-row td.z-cell{
+border:0;
+
+}
+</style>
+
+<window id="cartCheckoutWindow" width="100%" closable="true" self="@{define(left)}"  apply="${cartCheckoutViewCtrl}"  >	
+			
+				
+			
+			<panel
+				title="CHECKOUT > SHIPPING"
+				border="normal"
+					>
+				<panelchildren>					
+					
+					<vlayout>
+						<vbox>
+							<grid>
+							<columns>
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									<cell align="left" colspan="1" valign="middle">
+										<button label="&lt; GO BACK" style="background-color:#F15927;color:white;font-weight:bold;font-height:12px;"></button>
+									</cell>
+									<cell align="center" valign="middle" colspan="4">
+										<image src="/images/cart/checkoutShipping.png"></image>
+									</cell>
+									
+									<cell align="right" colspan="1" valign="middle">
+										<button label="&gt; CONTINUE" id="checkout" style="background-color:#4FC53F;color:white;font-weight:bold;font-height:12px;"></button>
+									</cell>
+								</row>
+							</rows>
+							</grid>
+						</vbox>
+						
+						
+						<vbox>
+							
+							<grid>
+							<columns>
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+							</columns>
+							<rows id="cartItemRows">
+							
+								<row style="background-color:#F1F1F1;font-weight:bold;font-height:12px;">								
+									<cell colspan="6" align="left">
+										<label>Step 1. Shipping Information</label>
+									</cell>
+																	
+								</row>
+																								
+							<row style="color:black;font-weight:bold;font-height:12px; ">
+								<cell colspan="6" align="left">
+									<label>Enter Shipping address</label>
+								</cell>
+							</row>
+							<row style="color:black;font-weight:bold;font-height:12px; ">
+								<cell colspan="6" align="left">
+									<checkbox id="checkBillingAddress" label="Check if this is also your billing address"></checkbox>
+								</cell>
+							</row>
+							<row style="color:black;font-weight:bold;font-height:12px; ">
+								<cell >
+									<space width="50px"/>
+									<label>Title:</label>
+								</cell>
+								<cell colspan="2" align="left">									
+										<radiogroup id="titleRadio">
+											<radio id="mrRadio" label="Mr." value="Mr." />
+											<radio id="mrsRadio" label="Mrs." />
+											<radio id="msRadio" label="Ms." />
+											<radio id="drRadio" label="Dr." />
+											<radio id="noneRadio" label="None" selected="true"/>
+										</radiogroup>									
+								</cell>
+								<cell align="left">
+									<space width="50px"/>
+									<label>City/Town:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="city" width="200px"></textbox>
+								</cell>
+							</row>
+							<row>
+								<cell >
+									<space width="50px"/>
+									<label>First Name:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="firstname" width="200px"></textbox>
+								</cell>
+								<cell  >
+									<space width="50px"/>
+									<label>Zip/Postal Code:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="zip" width="200px"></textbox>
+								</cell>
+							</row>
+							<row>
+								<cell  align="left">
+									<space width="50px"/>
+									<label>Last Name:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="lastname" width="200px"></textbox>
+								</cell>
+								<cell  align="left">
+									<space width="50px"/>
+									<label>Country:*</label>
+								</cell>
+								
+								<cell align="left" colspan="2"  apply="org.zkoss.bind.BindComposer" 
+									  viewModel="@id('vm') @init('com.mystitch.model.CountryViewModel')"
+								>
+								
+									<combobox id="countryCombo" width="207px" model="@load(vm.country)" selectedItem="@bind(vm.stitchCountry)" >									
+										
+									</combobox>
+									
+									
+								</cell>
+							</row>
+							<row>
+								<cell >
+									<space width="50px"/>
+									<label>Company:</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="company" width="200px"></textbox>
+								</cell>
+								<cell  >
+									<space width="50px"/>
+									<label>State/Province:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="state" width="200px"></textbox>
+								</cell>
+							</row>
+							<row>
+								<cell >
+									<space width="50px"/>
+									<label>Address 1:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="address1" width="200px"></textbox>
+								</cell>
+								<cell  >
+									<space width="50px"/>
+									<label>Phone:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="phone" width="200px"></textbox>
+								</cell>
+							</row>
+							<row>
+								<cell >
+									<space width="50px"/>
+									<label>Address 2:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="address2" width="200px"></textbox>
+								</cell>
+								<cell  >
+									<space width="50px"/>
+									<label>Fax:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="fax" width="200px"></textbox>
+								</cell>
+							</row>
+							<row>
+								<cell >
+									<space width="50px"/>
+									<label>* Required</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<space />
+								</cell>
+								<cell  >
+									<space width="50px"/>
+									<label>Address is:</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<radiogroup>
+										<radio id="businessAddress" label="Business"/>
+										<radio id="residentialAddress" label="Residential" selected="true"/>
+									</radiogroup>
+								</cell>
+							</row>
+							
+							<row>
+								<cell align="left" colspan="3">
+									<button label="&lt; GO BACK" style="background-color:#F15927;color:white;font-weight:bold;font-height:12px;"></button>
+								</cell>
+								<cell align="right" colspan="3">
+									<button label="&gt; CONTINUE" id="checkoutDown"  style="background-color:#4FC53F;color:white;font-weight:bold;font-height:12px;"></button>
+								</cell>
+							</row>
+								
+							</rows>
+							</grid>
+						</vbox>						
+						
+					</vlayout>
+					
+					
+					
+					</panelchildren>
+				</panel>
+				
+								
+		</window>
+</zk>

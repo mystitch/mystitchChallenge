@@ -1,0 +1,29 @@
+<?page title="Product List" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/layout/mainLayout.zul"?>
+<zk>
+
+
+<window border="normal" id="productList" self="@{define(left)}" >
+
+
+	<div id="productContainer">
+		<vlayout id="product_list" width="100%">
+            <n:h1 class="mo_head">Top Sales</n:h1>
+            <separator bar="true"></separator>
+            <hlayout spacing="10px">
+                <zk forEach="${products}">
+                    <image src="/images/products/mens/belts/BLT${each}.JPG" if="${each le num }" />
+                </zk>
+            </hlayout>
+            <separator height="5px"></separator>
+            <hlayout spacing="10px">
+                <zk forEach="${products}">
+                    <image src="/images/products/mens/belts/BLT${each}.JPG" if="${each gt num }" />
+                </zk>
+            </hlayout>
+        </vlayout>
+	</div>
+
+
+</window>
+</zk>

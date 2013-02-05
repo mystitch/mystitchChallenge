@@ -1,0 +1,72 @@
+<zk>
+
+<style dynamic="true">
+.z-button-os {
+    font-family: arial,sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    padding:0;
+}
+.z-textbox-rounded-inp{
+ font-size: 10px; 
+}
+
+.z-panel-hm .z-panel-header, .z-panel-header {
+
+	font-weight: bold;
+	font-size: 12px;
+	
+}
+
+</style>
+
+<window title=""  height="100%" width="100%" >
+	
+	<borderlayout >
+	
+		<north height="15%" sclass="header"  border="0" style="padding-right:5px; padding-left:5px;">
+			   <hlayout>
+				<image src="/images/global.png" width="157px;"></image>
+				<image src="/images/header.png" style="padding-left:5px;"></image>
+				<image src="/images/global.png" width="180px;"  ></image>
+			   </hlayout>
+		</north>
+ 	
+		 
+		
+		<west size="12%" border="0"  >
+					<image src="/images/global.png" height="100%" ></image>
+		</west>
+		<center style="padding-right:10px; padding-left:10px; padding-top:5px; overflow:auto;" border="0"  >
+				<div height="100%">
+				<include src="/menu/mainMenu.zul" />
+				<vlayout height="100%" style="overflow-y:scroll;">										
+								<div self="@{insert(left)}"  
+								sclass="content">
+								</div>
+<!-- 								<include src="/pages/productHome.zul" /> -->
+				
+			   <image src="/images/footer.png"   style="padding-left:7px;"></image>
+			
+			   </vlayout>	
+			   </div>			
+										
+							
+							
+		</center>
+		<east size="14%" border="0" >
+			<image src="/images/global.png" style="padding-left:0px;" height="100%" ></image>
+		</east>
+		<south  class="footer"  border="0" >
+<!-- 			<hlayout> -->
+<!-- 			<image src="/images/global.png" width="162px;" height="370px"></image> -->
+			
+<!-- 			<image src="/images/footer.png"   style="padding-left:7px;"></image> -->
+<!-- 			<image src="/images/global.png" width="180px;" height="370px"  style="padding-left:7px;"></image> -->
+<!-- 			 </hlayout> -->
+		</south>
+		
+	</borderlayout>
+	
+</window>
+</zk>

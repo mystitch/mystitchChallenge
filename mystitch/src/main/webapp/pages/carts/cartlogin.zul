@@ -1,0 +1,149 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/layout/mainLayout.zul"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+
+<style dynamic="true">
+tr.z-row td.z-cell{
+border:0;
+
+}
+</style>
+
+<window id="cartLoginWindow" width="100%" closable="true" self="@{define(left)}"  apply="${cartLoginViewCtrl}"  >	
+			
+				
+			
+			<panel
+				title="LOGIN"
+				border="normal"
+					>
+				<panelchildren>					
+					
+					<vlayout>
+						<vbox>
+							<grid>
+							<columns>
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									<cell align="left" colspan="3">
+										<button label="&lt; CONTINUE SHOPPING" style="background-color:#F15927;color:white;font-weight:bold;font-height:12px;"></button>
+									</cell>
+									<cell align="right" colspan="3">
+										<button label="&gt; PROCEED TO CHECKOUT" id="checkout" style="background-color:#4FC53F;color:white;font-weight:bold;font-height:12px;"></button>
+									</cell>
+								</row>
+							</rows>
+							</grid>
+						</vbox>
+						
+						<hbox>							
+								<tabbox id="retCustomer" width="310px" orient="horizontal" >
+								    <tabs >
+								        <tab label="Returning Customer" tooltiptext="Returning Customer" />								            
+								    </tabs>
+								    <tabpanels >
+								   		<tabpanel >
+								        	<include src="/pages/carts/retCustomerPanel.zul" mode="instant"/>
+								        </tabpanel>
+								   	</tabpanels>
+								 </tabbox>
+							
+							
+								 <tabbox id="newCustomer" width="310px"  orient="horizontal" >
+								    <tabs >
+								        <tab label="New Customer" tooltiptext="New Customer" />									        							            
+								    </tabs>
+								    <tabpanels >
+								   		<tabpanel >
+								        	<include src="/pages/carts/newCustomerPanel.zul" mode="instant"/>
+								        </tabpanel>
+								   	</tabpanels>
+								 </tabbox>
+							
+								<tabbox id="noAccount" width="310px"  orient="horizontal" >
+								    <tabs >
+								        <tab label="Continue without Account" tooltiptext="No Account" />									        							            
+								    </tabs>
+								    <tabpanels >
+								   		<tabpanel >
+								        	<include src="/pages/carts/noAccountPanel.zul" mode="instant"/>
+								        </tabpanel>
+								   	</tabpanels>
+								 </tabbox>
+						</hbox>
+						
+						<image src="/images/cart/doi.png"></image>
+						<vbox>
+							
+							<grid>
+							<columns>
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+							</columns>
+							<rows id="cartItemRows">
+							
+								<row style="background-color:#F1F1F1;font-weight:bold;font-height:12px;">								
+									<cell>
+										<label>Items</label>
+									</cell>
+									<cell colspan="4" align="right">
+										<label>Unit Price</label>
+									</cell>
+									<cell align="right">
+										<label>Total Price</label>
+									</cell>									
+								</row>
+																								
+								<row id="summaryRow" style="background-color:#9ADFF1;color:black;font-weight:bold;font-height:12px; ">								
+								
+								<cell colspan="5" align="right">
+									<div>
+										<label>Sub Total</label>
+									</div>
+									<div>
+										<label>Shipping</label>
+									</div>
+									<div>
+										<label>Total</label>
+									</div>
+								
+								</cell>
+								<cell colspan="1" align="right" id="priceCell">
+									
+								
+								</cell>
+							</row>
+							<row>
+								<cell align="left" colspan="3">
+									<button label="&lt; CONTINUE SHOPPING" style="background-color:#F15927;color:white;font-weight:bold;font-height:12px;"></button>
+								</cell>
+								<cell align="right" colspan="3">
+									<button label="&gt; PROCEED TO CHECKOUT" id="checkoutDown"  style="background-color:#4FC53F;color:white;font-weight:bold;font-height:12px;"></button>
+								</cell>
+							</row>
+								
+							</rows>
+							</grid>
+						</vbox>						
+						
+					</vlayout>
+					
+					
+					
+					</panelchildren>
+				</panel>
+				
+								
+		</window>
+</zk>

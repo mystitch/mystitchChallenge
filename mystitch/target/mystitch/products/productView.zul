@@ -1,0 +1,239 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/layout/mainLayout.zul"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+
+<window height="100%" width="100%" border="0" id="productView" self="@{define(left)}" apply="${productViewCtrl}">
+			
+			<image src="/images/productViewBreadCrumbs.png"></image>
+		
+			<hlayout>
+			<hbox width="17.5%">
+				<vlayout>
+					<panel sclass="font-size: 10px;" title="Refine by size:"
+					border="normal"
+					 width="100%" >
+					<panelchildren>
+						<grid>
+							<columns>
+								<column width="50%" />								
+								<column width="50%" />
+							</columns>
+							<rows>
+								<row>									
+									<cell>
+									    <hbox>
+									    	<checkbox id="size32" />
+									    	<label>32</label>
+									    </hbox>																
+									</cell>
+									<cell>
+										<hbox>
+									    	<checkbox id="size34" />
+									    	<label>34</label>
+									    </hbox>											
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<hbox>
+									    	<checkbox id="size36" />
+									    	<label>36</label>
+									    </hbox>								
+									</cell>
+									<cell>
+										<hbox>
+									    	<checkbox id="size38" />
+									    	<label>38</label>
+									    </hbox>												
+									</cell>
+								</row>
+							</rows>
+						</grid>
+					</panelchildren>
+				</panel>
+				<panel sclass="font-size: 10px;" title="Refine by color:"
+					border="normal"
+					 width="100%" >
+					<panelchildren>
+						<grid >
+							<columns>
+								<column width="50%" />								
+								<column width="50%" />
+							</columns>
+							<rows>
+								<row>									
+									<cell>
+									    <hbox>
+									    	<checkbox id="colorBlack" />
+									    	<label>Black</label>
+									    </hbox>																
+									</cell>
+									<cell>
+										<hbox>
+									    	<checkbox id="colorChoc" />
+									    	<label>Choc</label>
+									    </hbox>											
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<hbox>
+									    	<checkbox id="colorBrown" />
+									    	<label>Brown</label>
+									    </hbox>								
+									</cell>
+									<cell>
+										<hbox>
+									    	<checkbox id="colorWhite" />
+									    	<label>White</label>
+									    </hbox>												
+									</cell>
+								</row>
+							</rows>
+						</grid>
+					</panelchildren>
+				</panel>
+				<panel sclass="font-size: 10px;" title="Refine by brand:"
+					border="normal"
+					 width="100%" >
+					<panelchildren>
+						<grid >
+							<columns>
+<!-- 								<column width="50%" />								 -->
+<!-- 								<column width="50%" /> -->
+							</columns>
+							<rows>
+								<row>									
+									<cell>
+									    <hbox>
+									    	<checkbox id="Billabong" />
+									    	<label>Billabong</label>
+									    </hbox>																
+									</cell>
+									<cell>
+										<hbox>
+									    	<checkbox id="Hurley" />
+									    	<label>Hurley</label>
+									    </hbox>											
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<hbox>
+									    	<checkbox id="Insight" />
+									    	<label>Insight</label>
+									    </hbox>								
+									</cell>
+									<cell>
+										<hbox>
+									    	<checkbox id="Lee" />
+									    	<label>Lee</label>
+									    </hbox>												
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<hbox>
+									    	<checkbox id="Levis" />
+									    	<label>Levis</label>
+									    </hbox>								
+									</cell>
+									<cell>
+										<hbox>
+									    	<checkbox id="Havaianas" />
+									    	<label>Havaianas</label>
+									    </hbox>												
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<hbox>
+									    	<checkbox id="Nixon" />
+									    	<label>Nixon</label>
+									    </hbox>								
+									</cell>
+									<cell>
+										<hbox>
+									    	<checkbox id="Volcom" />
+									    	<label>Volcom</label>
+									    </hbox>												
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<hbox>
+									    	<checkbox id="Rusty" />
+									    	<label>Rusty</label>
+									    </hbox>								
+									</cell>
+									<cell>
+										<hbox>
+									    	<checkbox id="RCVA" />
+									    	<label>RCVA</label>
+									    </hbox>												
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<hbox>
+									    	<checkbox id="Stussy" />
+									    	<label>Stussy</label>
+									    </hbox>								
+									</cell>
+									<cell>
+										<hbox>
+									    	<checkbox id="Vans" />
+									    	<label>Vans</label>
+									    </hbox>												
+									</cell>
+								</row>
+								<row >
+								
+									<cell colspan="2">
+										<hbox>
+									    	<checkbox id="Quicksilver" />
+									    	<label>Quicksilver</label>
+									    </hbox>								
+									</cell>
+									
+								</row>
+							</rows>
+						</grid>
+					</panelchildren>
+				</panel>
+				</vlayout>
+				
+				
+			</hbox>
+			
+			 <hbox width="82%">
+			 	<panel sclass="font-size: 10px;"
+					title="Sort By:"
+					border="normal"
+					width="100%">
+					<panelchildren>
+						<grid id="searchGrid">
+							<columns>
+								<column width="25%" />
+								<column width="25%" />
+								<column width="25%" />
+								<column width="25%" />
+							</columns>
+							<rows id="productRows" height="100px;">
+								
+							</rows>
+						</grid>
+						
+					</panelchildren>
+				</panel>
+			 </hbox>
+			 
+			 
+			 
+			</hlayout>
+				
+			
+
+</window>
+</zk>
+

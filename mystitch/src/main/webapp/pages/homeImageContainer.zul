@@ -1,0 +1,10 @@
+<?page title="Home" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window border="0">
+
+	<image src="/images/landing.png"></image>
+	<image src="/images/bodybottom.png"></image>
+	
+			
+</window>
+</zk>

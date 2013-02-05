@@ -1,0 +1,16 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="noAccountWindow" width="100%" border="normal"  apply="com.mystitch.controller.NoAccountWindowCtrl" >
+ 
+ <vlayout>
+ 	<vbox>
+ 	 <radio id="noAccountRadio" label="Checkout without an account"></radio>
+ 	</vbox>
+ 	
+ </vlayout>
+ 
+ 
+ 
+ 
+</window>
+</zk>

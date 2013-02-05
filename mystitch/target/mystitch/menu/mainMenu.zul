@@ -1,0 +1,9 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="mainMenu" apply="" width="100%">
+
+			<include src="/menu/productMenu.zul"/>
+
+		
+</window>
+</zk>

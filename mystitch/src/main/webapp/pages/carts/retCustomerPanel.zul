@@ -1,0 +1,39 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window width="100%" border="normal">
+ 
+ <vlayout>
+ 	<vbox>
+ 	 <radio id="retCustomerRadio" disabled="true" label="Please enter your email and password"></radio>
+ 	</vbox>
+ 	<vbox>
+ 	 <hlayout>
+ 	 	<label>Email:*</label>
+ 	 	<space width="17px"/>
+ 	 	<textbox id="retCustomerEmail" width="150px" ></textbox>
+ 	 </hlayout>
+ 	</vbox>
+ 	<vbox>
+ 	 <hlayout>
+ 	 	<label>Password:*</label> 	 	
+ 	 	<textbox id="retCustomerPassword" width="150px"></textbox>
+ 	 </hlayout>
+ 	</vbox>
+ 	<vbox>
+ 	<hlayout> 	
+ 	</hlayout>
+ 	<hlayout> 	
+ 	</hlayout> 	
+ 	<hbox align="start">
+ 		<button label="&lt; CONTINUE SHOPPING" style="background-color:#F15927;color:white;font-weight:bold;font-height:12px;"></button>
+		<space width="60px"/>
+		<button label="&gt; CHECKOUT" style="background-color:#4FC53F;color:white;font-weight:bold;font-height:12px;"></button>
+	</hbox>
+ 	</vbox>
+ </vlayout>
+ 
+ 
+ 
+ 
+</window>
+</zk>

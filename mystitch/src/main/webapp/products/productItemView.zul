@@ -1,0 +1,188 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/layout/mainLayout.zul"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<style dynamic="true">
+.z-panel-hm .z-panel-header, .z-panel-header
+ {
+ font-weight: bold;
+ }
+</style>
+
+<window width="100%" height="100%" border="0" self="@{define(left)}"  apply="${productItemViewCtrl}" >
+	
+	<image src="/images/products/mens/itemview/topBar.png"></image>
+
+	<hlayout>
+			<hbox width="16%">
+				<vlayout>
+					<vbox>
+						<image src="/images/products/mens/itemview/small1.jpg"/>
+					</vbox>
+					<vbox>
+						<image src="/images/products/mens/itemview/small2.jpg"/>
+					</vbox>
+				</vlayout>				
+			</hbox>
+			<hbox width="42%">
+				<image src="/images/products/mens/itemview/large.jpg"/>
+			</hbox>
+			<hbox width="42%">
+				
+				<window id="cartWindow" width="20%" closable="true" action="hide: slideUp({duration: 400})" visible="false" position="parent" defaultActionOnShow="slideDown" >				
+					<timer id="cartTimer" repeats="true" delay="3000" />
+					<grid>
+						<columns>
+							<column />
+							<column />
+							<column />
+						</columns>
+						<rows id="cartItemRows">
+							<row >
+								<cell colspan="3"><hbox></hbox></cell>
+							</row>
+
+
+							<row id="cartItemSummary">
+								<cell></cell>
+								<cell>
+									<div>
+										<label>Sub Total</label>
+									</div>
+									<div>
+										<label >Shipping</label>
+									</div>
+									<div>
+										<label >Total</label>
+									</div>
+								</cell>
+								<cell valign="top" >
+									<div>
+										<label id="ORDER_SUBTOTAL"/>
+									</div>
+									<div>
+										<label id="ORDER_SHIPPING"/>
+									</div>
+									<div>
+										<label id="ORDER_TOTAL"/>
+									</div>
+								</cell>
+							</row>						
+						</rows>
+					
+					</grid>
+				</window>
+				<vlayout>
+				<vbox id="proceedToCartBox" visible="false">
+						<groupbox>
+							<hbox>
+								<button label="Proceed to Cart" id="proceedToCart" image="/images/helper/rightarrow_g.png" style="background-color:#4FC53F;color:white;font-weight:bold;font-height:12px;"></button>
+							</hbox>
+						</groupbox>
+					</vbox>
+				<vbox>
+				<panel
+					title="BILLABONG BOWER BELT - CHOC"
+					border="normal"
+					width="100%">
+					<panelchildren>					
+					
+					<grid>
+						<columns>
+							<column />
+							<column />
+						</columns>
+						<rows>
+							<row>
+								<cell align="center">
+									<hbox><label style="font-weight:bold;" id="itemPrice" /></hbox>
+								</cell>
+								<cell align="right">
+									<hbox align="end">
+										<image src="/images/products/mens/belts/brands/brand0.jpg" id="itemImage"/>
+									</hbox>
+								</cell>
+							</row>
+							<row>
+								
+								<cell align="left" colspan="2" valign="middle" >								
+ 								<hlayout >
+ 								<image src="/images/products/mens/itemview/step1.jpg"/>
+ 											<groupbox >
+											<caption >Select Size</caption>
+											
+											<hlayout >
+											    <hbox>
+											    	<checkbox id="size32"/>
+											    	<label>32</label>
+											    </hbox>
+											    <hbox>
+											    	<checkbox id="size34" />
+											    	<label>34</label>
+											    </hbox>	
+											    <hbox>
+											    	<checkbox id="size36" />
+											    	<label>36</label>
+											    </hbox>	
+											    <hbox>
+											    	<checkbox id="size38" />
+											    	<label>38</label>
+											    </hbox>
+											  </hlayout>  										    					
+											</groupbox>	
+								</hlayout> 	
+										
+								</cell>		
+							</row>
+							<row>
+								<cell colspan="2">
+								<hlayout>
+								<image src="/images/products/mens/itemview/step2.jpg"/>
+								<groupbox >
+								<caption >Select Quantity</caption>
+ 								<hlayout >
+											    <hbox>
+											    	<separator />
+											    	<intbox id="itemQuantity" value="1" style="width:57%" />
+									
+											    </hbox>
+											    									    					
+											
+								</hlayout> 	
+								</groupbox>	
+								</hlayout>		
+								</cell>		
+							</row>
+							<row>
+								
+							   <cell colspan="2" >
+							     	<image src="/images/products/mens/itemview/step3.jpg"/>
+							     	 <space width="6px"/>
+							   	   <button id="addToCart" label="ADD TO CART" image="/images/helper/add.png"></button>
+							   </cell>										
+							</row>
+							<row>
+							    <cell colspan="2">
+							      <space width="35px"/>
+							   	   <button label="Currency Converter" id="currencyConverter" width="130px;"></button>
+							   </cell>										
+							</row>
+							<row>
+							    <cell colspan="2">
+							    	<space width="35px"/>
+							   	   <button label="Add to favorites" width="130px;" onClick=""></button>
+							   </cell>										
+							</row>
+						</rows>
+					</grid>
+					
+					</panelchildren>
+				</panel>
+				</vbox>
+					
+				</vlayout>
+			</hbox>
+			
+</hlayout>
+
+</window>
+</zk>

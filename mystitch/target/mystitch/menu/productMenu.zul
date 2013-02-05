@@ -1,0 +1,132 @@
+<?page title="Identification" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+
+<style dynamic="true">
+.z-menubar-hor .z-menuitem-btn
+ {
+font-weight: normal;
+white-space: nowrap;
+font-family: arial,sans-serif;
+font-size: 12px;
+color: white;
+font-weight:bold;
+valign:middle;
+}
+.z-menuitem-inner-m .z-menuitem-btn {padding: 1 !important; vertical-align:middle;}
+
+.z-menubar-hor .z-menu-btn
+{
+    font-weight: normal;
+    white-space: nowrap;
+    font-family: arial,sans-serif;
+    font-size: 12px;
+    color:white;
+    font-weight:bold;
+    valign:middle;
+}
+
+</style>
+
+
+
+
+
+<window id="productsMenu" apply="${productMenuViewCtrl}" width="100%">
+	     <menubar id="menubar" orient="horizontal" autodrop="true" style="background:#38C0E3;color:white;font-weight:bold;font-height:12px; " height="25px">
+		     <menuitem left="true" id="Application" image="/images/home.png" style="background:#38C0E3;"/>    
+            
+             <menu label="MENS" left="true" id="mens" >
+             	<menupopup>
+             	   
+             	    <menu label="SHOP BY PRODUCT">
+             	      <menupopup>
+             	    	<menuitem label="New Arrivals" id="newArrivals"/>
+	             		<menuitem label="New Brands" />
+	             		<menuitem label="All Mens" />
+	             		<menuitem label="Athletics" />
+	             		<menuitem label="Basics" />
+	             		<menuitem label="Beanies" />
+	             		<menuitem label="Belts" id="belts" value="BLT" />
+	             		<menuitem label="Boardshorts" />
+	             		<menuitem label="Caps" />
+	             		<menuitem label="Cardigans" />
+	             		<menuitem label="Fleece" />
+	             		<menuitem label="Footwear" />
+	             		<menuitem label="Hats" />
+	             		<menuitem label="Jackets" />
+	             		<menuitem label="Jeans" />
+	             		<menuitem label="Knits" />
+	             		<menuitem label="Pants" />
+	             		</menupopup>
+             	    </menu>
+             	                	    
+             	    <menu label="SHOP BY BRAND">
+             	    	<menupopup>
+             	    	<menuitem label="BRANDS A-Z" />
+             	    	<menuitem label="TOP BRANDS" />
+             	    	<menuitem label="Billabong" />
+             	    	<menuitem label="Havaianas" />
+             	    	<menuitem label="Hurley" />
+             	    	<menuitem label="Insight" />
+             	    	<menuitem label="Lee" />
+             	    	<menuitem label="Levis" />
+             	    	<menuitem label="Nixon" />
+             	    	<menuitem label="Quiksilver" />
+             	    	<menuitem label="Rip Curl" />
+             	    	<menuitem label="RVCA" />
+             	    	<menuitem label="Rusty" />
+             	    	<menuitem label="Stussy" />
+             	    	<menuitem label="Vans" />
+             	    	<menuitem label="Volcom" />
+             	    	<menuitem label="Wrangler" />
+             	    	</menupopup>
+             	    </menu>
+             	    
+          
+             	    
+             	    
+             	    <menu label="INSPIRATION">
+             	    	<menupopup>
+             	    	<menuitem label="Pieces Of Punk" />
+             	    	<menuitem label="Hand Picked Outfits" />
+             	    	<menuitem label="Wild Terrain" />
+             	    	<menuitem label="Hot Summer In The City" />
+             	    	<menuitem label="Island Escape" />
+             	    	<menuitem label="Wrangler x Thrills Collection" />
+             	    	<menuitem label="View All" />
+             	    	</menupopup>
+             	    </menu>
+             	    
+             	    <menu label="FEATURE STYLE">
+             	    	<menupopup>
+             	    	<menuitem label="View All" />
+             	    	</menupopup>
+             	    </menu>
+             	    
+             	   
+             		
+             		
+             		
+             	</menupopup>
+             </menu>              
+             
+             <menuitem label="WOMENS" left="true" id="WOMENS"  />         
+        	 <menuitem label="KIDS" left="true" id="KIDS" />
+        	 <menuitem label="ACCESSORIES" left="true" id="ACCESSORIES"  />
+             <menuitem label="SUNGLASSES" id="SUNGLASSES"  />
+             <menuitem label="WATCHES" id="WATCHES"  />
+             <menuitem label="FOOTWEAR" id="FOOTWEAR"  />
+             <menuitem label="BAGS" id="BAGS"  />
+             <menuitem label="SURF" id="SURF" />
+             <menuitem label="SNOW" id="SNOW"  />
+             <menuitem label="SKATE" id="SKATE" />
+             <menuitem label="BRANDS" /> 
+             <menuitem label="SALE"  />                      
+        </menubar>
+      	<image src="/images/promo.png"></image>				
+</window>
+ 
+ 
+ 
+</zk>

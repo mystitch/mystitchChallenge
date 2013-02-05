@@ -1,0 +1,340 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/layout/mainLayout.zul"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<?script type="text/javascript" src="https://www.google.com/jsapi"?>
+<!-- <?script type="text/javascript" src="/js/mystitchWallet.js"?> -->
+
+<zk>
+
+<style dynamic="true">
+tr.z-row td.z-cell{
+border:0;
+}
+
+.z-label{
+ font-weight:bold;
+}
+
+</style>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript" >
+
+google.load('payments', '1.0', {
+    'packages': ['sandbox_config']
+  });
+  function setup() {
+    googleCheckoutButton = document.getElementById("googleCheckoutButton");
+    googleCheckoutButton.onClick = function() {
+      goog.payments.inapp.buy({
+        parameters: {},
+        jwt: "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxNDIwNDk" +
+"1MzA5NDM1MjE2ODU3MSIsImF1ZCI6Ikdvb2dsZSI" +
+"sInR5cCI6Imdvb2dsZS9wYXltZW50cy9pbmFwcC9" +
+"pdGVtL3YxIiwiaWF0IjoxMzU5ODkzMzQxLCJleHA" +
+"iOjEzNTk4OTkzNDEsInJlcXVlc3QiOnsibmFtZSI" +
+"6IlBpZWNlIG9mIENha2UiLCJkZXNjcmlwdGlvbiI" +
+"6IkEgZGVsaWNpb3VzIHBpZWNlIG9mIHZpcnR1YWw" +
+"gY2FrZSIsInByaWNlIjoiMTUwLjAwIiwiY3VycmV" +
+"uY3lDb2RlIjoiQVVEIiwic2VsbGVyRGF0YSI6IjE" +
+"wNzA3MjMxNDc1NzgzODk1MDU0In19.emLz1mUQcf" +
+"qeTjmBCT3hZyKmD0F-nAi7oAghBZB_mHk",
+        success: function() {window.alert("success")},
+        failure: function() {window.alert("failure")}
+      });
+      return false;
+    };
+  }
+
+
+</script>
+
+
+<window id="cartPaymentWindow" width="100%" closable="true" self="@{define(left)}"  apply="${cartPaymentViewCtrl}"  >	
+			
+				
+			
+			<panel
+				title="CHECKOUT > PAYMENT"
+				border="normal"
+					>
+				<panelchildren>					
+					
+					<vlayout>
+						<vbox>
+							<grid>
+							<columns>
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									<cell align="left" colspan="1" valign="middle">
+										<button label="&lt; GO BACK" id="back"  style="background-color:#F15927;color:white;font-weight:bold;font-height:12px;"></button>
+									</cell>
+									<cell align="center" valign="middle" colspan="4">
+										<image src="/images/cart/checkoutPayment.png"></image>
+									</cell>
+									
+									<cell align="right" colspan="1" valign="middle">										
+										<button label="&gt; CONTINUE" id="checkout" style="background-color:#4FC53F;color:white;font-weight:bold;font-height:12px;"></button>
+									</cell>
+								</row>
+								<row style="background-color:#F1F1F1;font-weight:bold;font-height:12px;">								
+									<cell colspan="6" align="left">
+										<label>Step 3. Payment Information</label>
+									</cell>
+																	
+								</row>
+								
+								
+							</rows>
+							</grid>
+						</vbox>
+							
+						<vbox>
+							<space height="20px"/>
+							<hlayout>
+								<space width="20px"/>
+								<hbox>								
+								<div>
+									<label>Email Address for Ordering</label>
+								</div>
+								<div>
+									<label>and Shipping Confirmation*</label>
+								</div>	
+								</hbox>	
+								<hbox>
+									<textbox id="emailConfirmation" width="200px"></textbox>
+									<label>*Required</label>
+								</hbox>						
+							</hlayout>
+							<hlayout>
+							<space width="20px"/>
+							<groupbox>
+							<caption>Payment Method</caption>
+							
+							<div>
+								<label>Use A Gift Certificate</label>								
+							</div>
+							<space height="10px"/>
+							<div>
+							 <hbox>
+							 	<label>Card Number</label>
+							 	<space width="5px"/>
+							 	<textbox  width="140px"/>
+							 	<space width="20px"/>
+							 	<label>Pin:</label>
+							 	<space width="5px"/>
+							 	<textbox  width="50px"/>
+							 	<space width="10px"/>
+							 	<button label="USE CERTIFICATE" id="useCerticate" style="background-color:#38C0E3;color:white;font-weight:bold;font-height:12px;"></button> 
+							 	  
+							 </hbox>
+							</div>
+							<space height="40px"/>
+							<div>
+							<hbox>
+								<radio id="creditCardPayment"></radio>
+								<label>Credit Card</label>
+								<space width="10px"/>
+								<image src="/images/cart/creditCard.jpg"/>
+							</hbox>
+							</div>
+							<div>
+								<hbox>
+									<radio id="paypalPayment" disabled="true"></radio>								
+									<image src="/images/cart/paypal.jpg"/>
+								</hbox>
+							</div>
+							<div>
+								<space height="10px"/>	
+								<hbox>
+									<radio id="phoneOrderPayment" disabled="true"></radio>								
+									<label>PHONE ORDER: Credit Card over the phone or Bank Deposit. After completing your purchase you will
+									receive an email with details on how to finalise payment.</label>
+								</hbox>
+							</div>
+							<div>
+								<space height="10px"/>	
+								<hbox>
+									<radio id="googleWallet" selected="true"></radio>								
+									<button label="&gt; GOOGLE WALLET" id="googleCheckoutButton"   style="background-color:#4FC53F;color:white;font-weight:bold;font-height:12px;"></button>
+							
+								</hbox>
+							</div>
+							
+							</groupbox>
+							</hlayout>
+						   <space height="10px"/>	
+						</vbox>	
+						
+						<vbox>														
+							<grid>								
+							<columns>
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+							</columns>
+							<rows>
+							<row style="color:black;font-weight:bold;font-height:12px; ">
+								<cell >
+									<space width="50px"/>
+									<label>Title:</label>
+								</cell>
+								<cell colspan="2" align="left">									
+										<radiogroup id="titleRadio">
+											<radio id="mrRadio" label="Mr." value="Mr." />
+											<radio id="mrsRadio" label="Mrs." />
+											<radio id="msRadio" label="Ms." />
+											<radio id="drRadio" label="Dr." />
+											<radio id="noneRadio" label="None" selected="true"/>
+										</radiogroup>									
+								</cell>
+								<cell align="left">
+									<space width="50px"/>
+									<label>City/Town:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="city" width="200px"></textbox>
+								</cell>
+							</row>
+							<row>
+								<cell >
+									<space width="50px"/>
+									<label>First Name:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="firstname" width="200px"></textbox>
+								</cell>
+								<cell  >
+									<space width="50px"/>
+									<label>Zip/Postal Code:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="zip" width="200px"></textbox>
+								</cell>
+							</row>
+							<row>
+								<cell  align="left">
+									<space width="50px"/>
+									<label>Last Name:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="lastname" width="200px"></textbox>
+								</cell>
+								<cell  align="left">
+									<space width="50px"/>
+									<label>Country:*</label>
+								</cell>
+								
+								<cell align="left" colspan="2"  apply="org.zkoss.bind.BindComposer" 
+									  viewModel="@id('vm') @init('com.mystitch.model.CountryViewModel')"
+								>
+								
+									<combobox id="countryCombo" width="207px" model="@load(vm.country)" selectedItem="@bind(vm.stitchCountry)" >									
+										
+									</combobox>
+									
+									
+								</cell>
+							</row>
+							<row>
+								<cell >
+									<space width="50px"/>
+									<label>Company:</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="company" width="200px"></textbox>
+								</cell>
+								<cell  >
+									<space width="50px"/>
+									<label>State/Province:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="state" width="200px"></textbox>
+								</cell>
+							</row>
+							<row>
+								<cell >
+									<space width="50px"/>
+									<label>Address 1:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="address1" width="200px"></textbox>
+								</cell>
+								<cell  >
+									<space width="50px"/>
+									<label>Phone:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="phone" width="200px"></textbox>
+								</cell>
+							</row>
+							<row>
+								<cell >
+									<space width="50px"/>
+									<label>Address 2:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="address2" width="200px"></textbox>
+								</cell>
+								<cell  >
+									<space width="50px"/>
+									<label>Fax:*</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<textbox id="fax" width="200px"></textbox>
+								</cell>
+							</row>
+							<row>
+								<cell >
+									<space width="50px"/>
+									<label>* Required</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<space />
+								</cell>
+								<cell  >
+									<space width="50px"/>
+									<label>Address is:</label>
+								</cell>
+								<cell align="left" colspan="2">
+									<radiogroup>
+										<radio id="businessAddress" label="Business"/>
+										<radio id="residentialAddress" label="Residential" selected="true"/>
+									</radiogroup>
+								</cell>
+							</row>
+							
+							<row>
+								<cell align="left" colspan="3">
+									<button label="&lt; GO BACK" id="backDown" style="background-color:#F15927;color:white;font-weight:bold;font-height:12px;"></button>
+								</cell>
+								<cell align="right" colspan="3">
+										<button label="&gt; CONTINUE" id="checkoutDown"  style="background-color:#4FC53F;color:white;font-weight:bold;font-height:12px;"></button>
+								</cell>
+							</row>
+								
+							</rows>
+							</grid>
+						</vbox>						
+						
+					</vlayout>
+					
+					
+					
+					</panelchildren>
+				</panel>
+				
+								
+		</window>
+</zk>

@@ -1,0 +1,165 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/layout/mainLayout.zul"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+
+<style dynamic="true">
+tr.z-row td.z-cell{
+border:0;
+
+}
+</style>
+
+<window id="cartDeliveryWindow" width="100%" closable="true" self="@{define(left)}"  apply="${cartDeliveryViewCtrl}"  >	
+			
+				
+			
+			<panel
+				title="CHECKOUT > DELIVERY "
+				border="normal"
+					>
+				<panelchildren>					
+					
+					<vlayout>
+						<vbox>
+							<grid>
+							<columns>
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									<cell align="left" colspan="1" valign="middle">
+										<button label="&lt; GO BACK" id="back" style="background-color:#F15927;color:white;font-weight:bold;font-height:12px;"></button>
+									</cell>
+									<cell align="center" valign="middle" colspan="4">
+										<image src="/images/cart/checkoutDelivery.png"></image>
+									</cell>
+									
+									<cell align="right" colspan="1" valign="middle">
+										<button label="&gt; CONTINUE" id="checkout" style="background-color:#4FC53F;color:white;font-weight:bold;font-height:12px;"></button>
+									</cell>
+								</row>
+							</rows>
+							</grid>
+						</vbox>
+						
+						
+						<vbox>
+							
+							<grid>
+							<columns>
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+								<column />
+							</columns>
+							<rows id="cartItemRows">
+							
+								<row style="background-color:#F1F1F1;font-weight:bold;font-height:12px;">								
+									<cell colspan="6" align="left">
+										<label>Step 2. Delivery Information</label>
+									</cell>
+																	
+								</row>
+																								
+							<row style="background-color:#9ADFF1;color:black;font-weight:bold;font-height:12px; ">
+								<cell colspan="5" align="left" valign="middle" id="nameDetails">
+									<div></div>
+									
+								</cell>
+								<cell align="right">
+									<button label="CHANGE" style="background-color:black;color:white;font-weight:bold;font-height:10px;"></button>
+								</cell>
+							</row>
+							<row>
+								<cell colspan="6"  apply="org.zkoss.bind.BindComposer" 
+									  viewModel="@id('vm') @init('com.mystitch.model.ShippingViewModel')" >
+									<div>
+									<label>Shipping Method</label>
+									<space width="2px"/>
+									<combobox id="shippingMethodCombo" width="207px" model="@load(vm.method)" selectedItem="@bind(vm.stitchMethod)" >									
+										
+									</combobox>
+									</div>
+									<div height="35px" style="padding:5px;">
+									    <space width="93px"/>
+										<button height="35px" label=" &gt; VIEW OUR SHIPPING OPTIONS" style="background-color:#9ADFF1;color:black;font-weight:bold;font-height:12px;" ></button>
+									</div>
+								</cell>
+							</row>
+							<row>
+								<cell colspan="6">
+									<div>
+										<label>Special Instructions</label>
+									</div>
+									<div>
+										<space width="97px"/>
+										<textbox rows="4" width="200px"></textbox>
+									</div>
+								</cell>
+							</row>
+							<row style="background-color:#F1F1F1;color:black;font-weight:bold;font-height:12px;">
+								
+								<cell>
+									<label>Items</label>
+								</cell>
+								<cell colspan="4" align="right">
+									<label>Unit Price</label>
+								</cell>
+								<cell align="right">
+									<label>Total Price</label>
+								</cell>
+								
+							</row>
+							<row id="cartItemRow">
+							
+							</row>
+							<row id="summaryRow" style="background-color:#9ADFF1;color:black;font-weight:bold;font-height:12px; ">								
+																
+								<cell colspan="5" align="right">
+									<div>
+										<label>Sub Total</label>
+									</div>
+									<div>
+										<label>Shipping</label>
+									</div>
+									<div>
+										<label>Total</label>
+									</div>
+								
+								</cell>
+								<cell colspan="2" align="right" id="priceCell">
+									
+								
+								</cell>
+							</row>
+							
+							<row>
+								<cell align="left" colspan="3">
+									<button label="&lt; GO BACK" id="backDown"  style="background-color:#F15927;color:white;font-weight:bold;font-height:12px;"></button>
+								</cell>
+								<cell align="right" colspan="3">
+									<button label="&gt; CONTINUE" id="checkoutDown"  style="background-color:#4FC53F;color:white;font-weight:bold;font-height:12px;"></button>
+								</cell>
+							</row>
+								
+							</rows>
+							</grid>
+						</vbox>						
+						
+					</vlayout>
+					
+					
+					
+					</panelchildren>
+				</panel>
+				
+								
+		</window>
+</zk>

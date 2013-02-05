@@ -1,0 +1,12 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/pages/productHome.zul"?>
+
+<zk>
+<!-- <window > -->
+
+<!-- 	<include src="/pages/productHome.zul"/>  -->
+
+<!-- </window> -->
+
+
+
+</zk>
